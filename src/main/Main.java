@@ -1,6 +1,7 @@
 package main;
 
 import java.util.List;
+import src.main.java.com.socrata.api.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,7 +12,7 @@ public class Main {
     	String payload = response.getEntity(String.class);
     	System.out.println(payload);
 
-    	//Get get this automatically serialized into a set of Java Beans annotated with Jackson JOSN annotations
+    	//Get get this automatically serialized into a set of Java Beans annotated with Jackson JSON annotations
     	List<Nomination> nominations = consumer.query("nominationsCopy", SoqlQuery.SELECT_ALL, Nomination.LIST_TYPE);
     	TestCase.assertTrue(nominations.size() > 0);
     	System.out.println(nominations.size());
